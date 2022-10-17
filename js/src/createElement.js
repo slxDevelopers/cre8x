@@ -28,8 +28,8 @@ function initDraw(canvas) {
             element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
             element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
 
-            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x - 38 + 'px' : mouse.startX - 38 + 'px';
-            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y - 34 + 'px' : mouse.startY - 34 + 'px';
+            // element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x - 38 + 'px' : mouse.startX - 38 + 'px';
+            // element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y - 34 + 'px' : mouse.startY - 34 + 'px';
         }
     }
 
