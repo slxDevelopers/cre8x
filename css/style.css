@@ -63,7 +63,7 @@ html, body{
     height: 100%;
     display: inline-block;
     float: left;
-    position: relative;
+    
     transition: all ease-in-out 0.3s; 
 }
 
@@ -609,7 +609,7 @@ cursor: pointer;
     font-size: 11px;
 }
 
-.rectangle {
+.genElm{
     border: 1px solid #000000;
     position: absolute;
 }
