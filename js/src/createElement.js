@@ -54,7 +54,7 @@ function initDraw(canvas) {
             mouse.startX = mouse.x;
             mouse.startY = mouse.y;
             element = document.createElement(createElement);
-            element.className = 'rectangle'
+            element.className = 'genElm';
             element.style.left = (mouse.x - document.getElementById("app").getBoundingClientRect().left)+ 'px';
             element.style.top = (mouse.y - document.getElementById("app").getBoundingClientRect().top) + 'px';
             // console.log(typeof mouse.y)
