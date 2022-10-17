@@ -22,7 +22,7 @@ function create(canvas){
         mouse.initY = mouse.y;
         
         temp = document.createElement(createElement);
-        temp.classList.add("newElm");
+        temp.classList.add("genElm");
         temp.style.left = e.pageX + "px";
         temp.style.top = e.pageY + "px";
         canvas.appendChild(temp);
