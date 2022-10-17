@@ -1,0 +1,615 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#container{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+#header{
+    height: 35px;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.12),0 2px 10px 0 rgba(0,0,0,.08),0 1px 20px 0 rgba(0,0,0,.08);
+    position: relative;
+    z-index: 2;
+}
+
+#footer{
+    height: 30px;
+    width: 100%;
+    background: white;
+    border-top: 1px solid rgb(226, 226, 226);
+    z-index: 4;
+    position: relative;
+}
+
+#center{
+    width: 100%;
+    background: white;
+    position: relative;
+}
+
+#sidebar{
+    width: 40px;
+    height: 100%;
+    background: white;
+    display: inline-block;
+    float: left;
+    border-right: 1px solid rgb(226, 226, 226);
+    box-shadow: 0 10px 5px 0 rgba(0,0,0,.12),0 2px 10px 0 rgba(0,0,0,.08),0 1px 20px 0 rgba(0,0,0,.08);
+    z-index: 3;
+    position: relative;
+}
+
+#right-margin{
+    height: 100%;
+    width: 40px;
+    display: inline-block;
+    float: right;
+    background: #eff0f3;
+    position: relative;
+    z-index: 3;
+}
+
+#app{
+    height: 100%;
+    display: inline-block;
+    float: left;
+    position: relative;
+    transition: all ease-in-out 0.3s; 
+}
+
+#cover{
+    position: absolute;
+    height: 100%;
+    left: 41px;
+    pointer-events: none !important;
+    z-index: 1;
+    transition: all ease-in-out 0.3s; 
+    box-shadow: 5px -1px 8px 2px rgba(0,0,0,.08),0 1px 8px 2px rgba(0,0,0,.08),2px 0 8px 2px rgba(0,0,0,.08),-2px 0 8px 2px rgba(0,0,0,.08);
+}
+
+#logo{
+    height: 34px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+}
+
+#floatTools{
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    height: 500px;
+    width: 100px;
+    display: block;
+    z-index: 100;
+    box-shadow: 0 7px 8px -4px rgba(0,0,0,.15),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.09);
+    pointer-events: all !important;
+    background: white;
+}
+
+#floatToolsHead{
+    height: 25px;
+    width: 100%;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    position: relative;
+}
+
+#floatTools-dragHandle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    font-size: 20px;
+    color: grey;
+    cursor: move;
+}
+
+.ft-icons{
+    font-size: 20px !important;
+    color: black;
+    position: relative;
+    margin-left: 18.5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.material-symbols-outlined:hover{
+    font-variation-settings: 'FILL' 1;
+}
+
+.material-symbols-outlined{
+    transition: all ease-in-out 0.3s;
+}
+
+.paste_icon{
+    position: relative;
+    height: 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    margin-left: 18.5px;
+    display: inline-block; 
+    fill: black;
+}
+
+#highlight_paste{
+    height: 15px;
+    width: 10px;
+    background: black;
+    position: absolute;
+    top: 19px;
+    left: 66px; cursor: pointer; display: none;
+}
+
+.rotate_icon{
+    position: relative;
+    height: 17px;
+    margin-top: 15px;
+    cursor: pointer;
+    margin-left: 18.5px;
+    display: inline-block; 
+}
+
+.ft-icons-subContainer{
+    height: 90px;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    position: relative;
+}
+
+.subContainer-text{
+    margin-top: 10px;
+    font-size: 10px;
+    display: block;
+    margin-top: 15px;
+    color: darkslategray;
+    position: relative;
+    font-family: 'Poppins';
+    cursor: default;
+}
+
+#arrange-align-container{
+    height: 70px !important;
+}
+
+.ft_input{
+    height: 20px;
+    width: 25px;
+    background: white;
+    color: black;
+    font-family: 'Poppins';
+    display: inline-block;
+    margin-left: 9.5px;
+    font-size: 13px;
+    outline: none;
+    border: none;
+    position: relative;
+    top: -6px;
+    padding: 5px 5px;
+    border-radius: 10px;
+    direction: rtl;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+}
+.ft_input:hover{
+    background-color: #0000001b;
+}
+
+.ft_input:focus{
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 2px;
+    background-color: #0000001b;
+}
+
+#deg{
+    height: 30px;
+    width: 4px;
+    color: black;
+    font-family: 'Poppins';
+    display: inline-block;
+    position: relative;
+    top: -12px;
+    margin-left: 3px;
+    cursor: default;
+}
+
+.flip_icon{
+    height: 17px;
+    margin-top: 15px;
+    margin-left: 18.5px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+#flip_horizontal{
+    transform: rotate(90deg);
+}
+
+.elmsize{
+font-size: 15px;
+font-family: 'Poppins';
+position: relative;
+margin-left: 18.5px;
+margin-top: 15px;
+color: black;
+cursor: pointer;
+}
+
+#elmheight, #elmposX{
+    font-size: 15px !important;
+    top: 10px !important;
+}
+
+#height_input, #posX_input{
+    top: 10px;
+    left: 4px;
+}
+
+#elmwidht, #elmposY{
+    top: 20px;
+}
+
+#width_input, #posY_input{
+    top: 20px;
+}
+
+#posY_input{
+    left: 4px;
+}
+
+#align_submgr{
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 7px 8px -4px rgba(0,0,0,.15),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.09);
+    -webkit-transition: all 0.5s 0.3s ease;
+    -moz-transition: all 0.5s 0.3s ease;
+    -o-transition: all 0.5s 0.3s ease;
+    transition: all 0.5s 0.3s ease;
+}
+
+/* #align:hover #align_submgr{
+    width: 80px;
+    height: 80px;
+} */
+
+#break_points{
+    height: 90%;
+    width: auto;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bpi-container{
+    height: 100%;
+    width: 50px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+.bpi-container:hover{
+    background-color: rgb(235, 235, 235);
+}
+
+.breakPoint_icons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.size_container{
+    width: auto;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    transition: all ease-in-out 0.3s;
+    bottom: 9.5px;
+}
+
+.size_container:hover{
+    background-color: rgb(235, 235, 235);
+}
+
+.curr_dim{
+    font-family: 'Poppins';
+    color: black;
+    width: auto;
+    padding: 5px 5px;
+    font-size: 15px;
+    cursor: default;
+    display: inline-block;
+    pointer-events: none;
+}
+
+.line{
+    height: 100%;
+    width: 1.5px;
+    background-color: transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.subline{
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+}
+
+#vpmgr{
+    position: absolute;
+    height: 0px;
+    width: 250px;
+    display: none;
+    top: 50px;
+    left: 50%;
+    background-color: black;
+    transition: height ease-in-out 0.3s;
+}
+
+.vpmgr{
+    height: 200px;
+    display: block;
+}
+
+.side_elm{
+    height: 60px;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.elmManage_icons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+
+
+#elementManager{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+}
+
+#usermanager{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+
+.usermanage_icons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#sideBar_titles{
+    height: 100%;
+    width: 150px;
+    background: transparent;
+    position: relative;
+    left: 10px;
+    pointer-events: none;
+}
+
+#elmgr_titles{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    background: transparent;
+}
+
+#usrmgr_titles{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    background: transparent;
+}
+
+.elmmgr_title{
+    height: 60px;
+    width: auto;
+    background: transparent;
+    pointer-events: none;
+    position: relative;
+}
+
+.usrmgr_title{
+    height: 60px;
+    width: auto;
+    background: transparent;
+    pointer-events: none;
+    position: relative;
+}
+
+.emt{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Poppins';
+    font-size: 17px;
+    color: black;
+    width: auto;
+    padding: 5px 5px;
+    pointer-events: none;
+    z-index: 10000;
+    background: white;
+    box-shadow: 0 7px 8px -4px rgba(0,0,0,.15),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.09);
+    /* text-shadow: 2px 2px rgba(0,0,0,0.15); */
+    display: none;
+}
+
+.umt{
+    position: absolute;
+    top: 50%;
+    display: none;
+    transform: translateY(-50%);
+    font-family: 'Poppins';
+    font-size: 17px;
+    color: black;
+    width: auto;
+    padding: 5px 5px;
+    pointer-events: none;
+    z-index: 10000;
+    background: white;
+    box-shadow: 0 7px 8px -4px rgba(0,0,0,.15),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.09);
+    /* text-shadow: 2px 2px rgba(0,0,0,0.15); */
+}
+
+.displayTitle{
+    display: block;
+}
+
+#navigationContainer{
+    height: 100%;
+    width: 0px;
+    display: inline-block;
+    float: left;
+    background-color: #eff0f3;
+    position: relative;
+    transition: all ease-in-out 0.3s;   
+}
+
+.elsubmenu{
+    width: 0px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 10000;
+    display: inline-block;
+    transition: all ease-in-out 0.3s;
+    pointer-events: all !important;
+    float: left;
+    box-shadow: 0 10px 5px 0 rgba(0,0,0,.12),0 2px 10px 0 rgba(0,0,0,.08),0 1px 20px 0 rgba(0,0,0,.08);
+}
+
+.active_sbIcon{
+    font-variation-settings: 'FILL' 1;
+}
+
+.addElmSub{
+    height: auto;
+    width: 100%;
+    display: block;
+    position: relative;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.addElmSubHeader{
+    height: 50px;
+    width: 100%;
+    position: relative;
+    display: block;
+    background-color: #ffffff;
+    color: black;
+    font-family: 'Poppins';
+    font-weight: 500;
+    text-align: start;
+}
+
+.headerText{
+    margin-left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.elementToCreate{
+    height: 80px;
+    width: 80px;
+    background-color: white;
+    border-radius: 10px;
+    border-style: none;
+    margin-top: 2.5px;
+    margin-left: 5px;
+    margin-bottom: 2.5px;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+    display: inline-block;
+    position: relative;
+}
+
+.elementToCreate:hover{
+    background-color: white;
+    box-shadow: 0 10px 5px 0 rgba(0,0,0,.12),0 2px 10px 0 rgba(0,0,0,.08),0 1px 20px 0 rgba(0,0,0,.08);
+}
+
+.elementToCreate:hover .etcIcons{
+    font-variation-settings: 'FILL' 0 !important;
+    font-size: 35px !important;
+}
+
+.etcIcons{
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    cursor: pointer !important;
+    font-size: 30px !important;
+    transition: all ease-in-out 0.1s !important;
+}
+
+.etcIconLabel{
+    font-size: 10px;
+    width: 70px;
+    text-align: center;
+    font-family: 'Poppins';
+    position: absolute;
+    color: black;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all ease-in-out 0.1s;
+}
+
+.elementToCreate:hover .etcIconLabel{
+    font-size: 11px;
+}
+
+.rectangle {
+    border: 1px solid #000000;
+    position: absolute;
+}

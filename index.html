@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribbleX Web Builder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script src="js/lib/jquery.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+
+    <script>
+        function init(){
+            align();
+            localStorage.setItem("ft-top", "10px");
+            localStorage.setItem("ft-left", "10px");
+        }
+    </script>
+</head>
+<body onload="init();">
+    <div id="container">
+        <div id="header">
+            <img src="assets/logo/slx.png" alt="ScribbleX Logo" id="logo">
+            <div id="break_points">
+                <div class="bpi-container">
+                    <span class="material-symbols-outlined breakPoint_icons" id="laptop_icon">
+                        laptop_windows
+                    </span>
+                </div>
+                <div class="bpi-container">
+                    <span class="material-symbols-outlined breakPoint_icons" id="tablet_icon">
+                        tablet
+                    </span>
+                </div>
+                <div class="bpi-container">
+                    <span class="material-symbols-outlined breakPoint_icons" id="smartphone-icon">
+                        smartphone
+                    </span>
+                </div>
+                <div class="line">
+                    <div class="subline"></div>
+                </div>
+                <div class="size_container">
+                    <div class="curr_dim" id="curr_width"></div>
+                    <div class="curr_dim" id="curr_scale">100%</div>
+                    <!-- <span class="curr_dim">%</span> -->
+                </div>
+                <div id="vpmgr"></div>
+            </div>
+        </div>
+        <div id="center">
+            <div id="sidebar">
+                <div id="elementManager">
+                    <div class="side_elm" id="addElement_icon">
+                        <span class="material-symbols-outlined elmManage_icons" val="aeTitle" menuId="addElementMenu">
+                            add_circle
+                            </span>
+                    </div>
+                    <div class="side_elm" id="nav_icon">
+                        <span class="material-symbols-outlined elmManage_icons" val="navTitle" menuId="navigationContainer" id="navIcon" onclick="navMenu()"> 
+                            account_tree
+                            </span>
+                    </div>
+                    <div class="side_elm" id="templates_icon">
+                        <span class="material-symbols-outlined elmManage_icons" val="temTitle" menuId="templatesMenu">
+                            rebase_edit
+                            </span>
+                    </div>
+                    <div class="side_elm" id="assets_icon">
+                        <span class="material-symbols-outlined elmManage_icons" val="asTitle" menuId="assetsMenu">
+                            image
+                            </span>
+                    </div>
+                </div>
+                <div id="usermanager">
+                    <div class="side_elm" id="account_icon">
+                        <span class="material-symbols-outlined usermanage_icons" val="accTitle" menuId="userMenu">
+                            account_circle
+                            </span>
+                    </div>
+                    <div class="side_elm" id="setting_icon">
+                        <span class="material-symbols-outlined usermanage_icons" val="setTitle" menuID="settingMenu">
+                            settings
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="menuContainer" id="navigationContainer"></div>
+            <div id="app"></div>
+            <div id="right-margin"></div>
+            <div id="cover">
+                <div class="elsubmenu" id="addElementMenu">
+                    <div class="addElmSub" id="createContainer">
+                        <div class="addElmSubHeader"><span class="headerText">Container</span></div>
+                        <div class="elementToCreate" id="sectionElement" etc="section">
+                            <span class="material-symbols-outlined etcIcons">
+                                splitscreen
+                            </span>
+                            <span class="etcIconLabel">Section</span>
+                        </div>
+                        <div class="elementToCreate" id="columnElement" etc="column">
+                            <span class="material-symbols-outlined etcIcons">
+                                view_column_2
+                            </span>
+                            <span class="etcIconLabel">Column</span>
+                        </div>
+                        <div class="elementToCreate" id="gridElement" etc="grid">
+                            <span class="material-symbols-outlined etcIcons">
+                                grid_view
+                            </span>
+                            <span class="etcIconLabel">Grid</span>
+                        </div>
+                        <div class="elementToCreate" id="containerElement" etc="container">
+                            <span class="material-symbols-outlined etcIcons">
+                                crop_square
+                            </span>
+                            <span class="etcIconLabel">Container</span>
+                        </div>
+                    </div>
+                    <div class="addElmSub" id="createBasic">
+                        <div class="addElmSubHeader"><span class="headerText">Basic</span></div>
+                        <div class="elementToCreate" id="divElement" etc="div">
+                            <span class="material-symbols-outlined etcIcons">
+                                crop_7_5
+                            </span>
+                            <span class="etcIconLabel">Div</span>
+                        </div>
+                        <div class="elementToCreate" id="listElement" etc="list">
+                            <span class="material-symbols-outlined etcIcons">
+                                list_alt
+                            </span>
+                            <span class="etcIconLabel">List</span>
+                        </div>
+                        <div class="elementToCreate" id="buttonElement" etc="button">
+                            <span class="material-symbols-outlined etcIcons">
+                                crop_3_2
+                            </span>
+                            <span class="etcIconLabel">Button</span>
+                        </div>
+                        <div class="elementToCreate" id="linkElement" etc="link">
+                            <span class="material-symbols-outlined etcIcons">
+                                http
+                            </span>
+                            <span class="etcIconLabel">Link Block</span>
+                        </div>
+                    </div>
+                    <div class="addElmSub" id="createText">
+                        <div class="addElmSubHeader"><span class="headerText">Typography</span></div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                font_download
+                            </span>
+                            <span class="etcIconLabel">Heading</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                abc
+                            </span>
+                            <span class="etcIconLabel">Paragraph</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                format_quote
+                            </span>
+                            <span class="etcIconLabel">Quote</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                language
+                            </span>
+                            <span class="etcIconLabel">Link Text</span>
+                        </div>
+                    </div>
+                    <div class="addElmSub" id="createMedia">
+                        <div class="addElmSubHeader"><span class="headerText">Media</span></div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                imagesmode
+                            </span>
+                            <span class="etcIconLabel">Image</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                videocam
+                            </span>
+                            <span class="etcIconLabel">Video</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                smart_display
+                            </span>
+                            <span class="etcIconLabel">Video URL</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                headphones
+                            </span>
+                            <span class="etcIconLabel">Audio</span>
+                        </div>
+                    </div>
+                    <div class="addElmSub" id="createForm">
+                        <div class="addElmSubHeader"><span class="headerText">Form</span></div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                description
+                            </span>
+                            <span class="etcIconLabel">Form Block</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                label
+                            </span>
+                            <span class="etcIconLabel">Label</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                text_fields
+                            </span>
+                            <span class="etcIconLabel">Input</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                edit_square
+                            </span>
+                            <span class="etcIconLabel">Text Area</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                radio_button_checked
+                            </span>
+                            <span class="etcIconLabel">Radio</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                check_box
+                            </span>
+                            <span class="etcIconLabel">Check Box</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                publish
+                            </span>
+                            <span class="etcIconLabel">Form Submit</span>
+                        </div>
+                    </div>
+                    <div class="addElmSub" id="createComponents">
+                        <div class="addElmSubHeader"><span class="headerText">Component</span></div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                movie
+                            </span>
+                            <span class="etcIconLabel">BG Video</span></div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                arrow_drop_down
+                            </span>
+                            <span class="etcIconLabel">Drop-Down</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                menu
+                            </span>
+                            <span class="etcIconLabel">Navbar</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                linear_scale
+                            </span>
+                            <span class="etcIconLabel">Slider</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                map
+                            </span>
+                            <span class="etcIconLabel">Map</span>
+                        </div>
+                        <div class="elementToCreate">
+                            <span class="material-symbols-outlined etcIcons">
+                                thumb_up
+                            </span>
+                            <span class="etcIconLabel">Social Media</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="elsubmenu" id="templatesMenu">Template Menu</div>
+                <div class="elsubmenu" id="assetsMenu">Assets Menu</div>
+                <div class="elsubmenu" id="userMenu">User Menu</div>
+                <div class="elsubmenu" id="settingMenu">Settings Menu</div>
+
+
+                <div id="floatTools">
+                    <div id="floatToolsHead">
+                        <span class="material-symbols-outlined" id="floatTools-dragHandle" >
+                            drag_indicator
+                        </span>
+                    </div>
+                    <div class="floatToolsContainer">
+                        <div class="ft-icons-subContainer">
+                            <span class="material-symbols-outlined ft-icons" id="ft-copy" title="Copy">
+                                content_copy
+                            </span>
+                            <!-- <img src="assets/icons/paste.png" alt="paste" class="paste_icon" style="display: inline-block;" id="paste_icon" title="Paste"> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="paste_icon" title="paste"><title>Paste</title><path d="M26,4H21a1,1,0,0,0-1-1H18.83a3,3,0,0,0-5.66,0H12a1,1,0,0,0-1,1H6A1,1,0,0,0,5,5V30a1,1,0,0,0,1,1H26a1,1,0,0,0,1-1V5A1,1,0,0,0,26,4ZM13,5h1a1,1,0,0,0,1-1,1,1,0,0,1,2,0,1,1,0,0,0,1,1h1V6H13ZM25,29H7V6h4V7a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V6h4Z"/></svg>
+                            <div id="highlight_paste"></div>
+                            <span class="material-symbols-outlined ft-icons" id="ft-duplicate" title="Duplicate">
+                                control_point_duplicate
+                            </span>
+                            <span class="material-symbols-outlined ft-icons" id="ft-delete" title="Delete">
+                                delete
+                            </span>
+                        </div>
+                        <div class="ft-icons-subContainer" id="arrange-align-container">
+                            <center><span class="subContainer-text">Arrange & Align</span></center>
+                            <span class="material-symbols-outlined ft-icons" id="arrange" title="Arrange">
+                                layers
+                            </span>
+                            <span class="material-symbols-outlined ft-icons" id="align">
+                                view_timeline
+                                <div id="align_submgr"></div>
+                            </span>
+                        </div>
+                        <div class="ft-icons-subContainer">
+                            <img src="assets/icons/angle.png" alt="Rotate" class="rotate_icon" id="rotate_icon" title="Rotate">
+                            <input type="text" id="rotation_input" class="ft_input"><span id="deg">&#176;</span>
+                            <img src="assets/icons/repeat.png" alt="Flip" class="flip_icon" id="flip_vertical" title="Flip Vertical">
+                            <img src="assets/icons/repeat.png" alt="Flip" class="flip_icon" id="flip_horizontal" title="Flip Horizontal">
+                            
+                        </div>
+                        <div class="ft-icons-subContainer">
+                            <span class="elmsize" id="elmheight">H :</span> <input type="text" id="height_input" class="ft_input">
+                            <span class="elmsize" id="elmwidht">W :</span> <input type="text" id="width_input" class="ft_input">
+                        </div>
+                        <div class="ft-icons-subContainer">
+                            <span class="elmsize" id="elmposX">X :</span> <input type="text" id="posX_input" class="ft_input">
+                            <span class="elmsize" id="elmposY">Y :</span> <input type="text" id="posY_input" class="ft_input">
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="sideBar_titles">
+                    <div id="elmgr_titles">
+                        <div class="elmmgr_title">
+                            <div class="emt" id="aeTitle">Add Element</div>
+                        </div>
+                        <div class="elmmgr_title">
+                            <div class="emt" id="navTitle">Navigation</div>
+                        </div>
+                        <div class="elmmgr_title">
+                            <div class="emt" id="temTitle">
+                                Templates
+                            </div>
+                        </div>
+                        <div class="elmmgr_title">
+                            <div class="emt" id="asTitle">
+                                Assets
+                            </div>
+                        </div>
+                    </div>
+                    <div id="usrmgr_titles">
+                        <div class="usrmgr_title">
+                            <div class="umt" id="accTitle">
+                                Account
+                            </div>
+                        </div>
+                        <div class="usrmgr_title">
+                            <div class="umt" id="setTitle">
+                                Settings
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+    <script src="js/src/align.js"></script>
+    <script src="js/src/resizeObservers.js"></script>
+    <script src="js/src/floatTools.js"></script>
+    <script src="js/src/menu.js"></script>
+    <script src="js/src/createElement.js"></script>
+
+    <!--  This particular script is for the icon highlight management  -->
+    <script>
+        document.querySelector(".paste_icon").addEventListener("mouseover", ()=>{
+            document.getElementById("highlight_paste").style.display = "block";
+        });
+
+        document.querySelector(".paste_icon").addEventListener("mouseout", ()=>{
+            document.getElementById("highlight_paste").style.display = "none";
+        });
+
+        let submgr_state = false;
+
+        document.getElementById("align").addEventListener("mouseover", ()=>{
+            document.getElementById("align_submgr").style.height = "80px";
+            document.getElementById("align_submgr").style.width = "120px";
+            submgr_state = true;
+        });
+
+        document.getElementById("align").addEventListener("mouseout", ()=>{
+            if(submgr_state == true){
+                document.getElementById("align_submgr").style.height = "0px";
+                document.getElementById("align_submgr").style.width = "0px";
+                submgr_state = false;
+            }
+        });
+
+        document.getElementById("align_submgr").addEventListener("mouseout", ()=>{
+            document.getElementById("align_submgr").style.height = "0px";
+            document.getElementById("align_submgr").style.width = "0px";
+            submgr_state = false;
+        });
+
+        document.querySelector(".size_container").addEventListener("click", ()=>{
+            if(localStorage.getItem("vpmgr") == null || localStorage.getItem("vpmgr") == ''){
+                document.getElementById("vpmgr").style.display = "block";
+                setTimeout(()=>{
+                    document.getElementById("vpmgr").style.height = "200px";
+                }, 10);
+                localStorage.setItem("vpmgr", "open");
+            }else{
+                localStorage.removeItem("vpmgr");
+                document.getElementById("vpmgr").style.height = "0px";
+                setTimeout(()=>{
+                    document.getElementById("vpmgr").style.display = "none";
+                }, 300);
+            }
+        });
+
+        
+    </script>
+    <!--  -----------------------------------------------------------  -->
+</body>
+</html>
